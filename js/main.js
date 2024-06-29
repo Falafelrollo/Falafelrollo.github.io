@@ -654,7 +654,7 @@ function increaseRealtime() {
         }
     }
     else {
-        gameData.boost_cooldown -= realDiff
+        gameData.boost_cooldown -= (realDiff * Math.max( (1+0.01*(gameData.rebirthOneCount)),1 ))
 
         if (gameData.boost_cooldown < 0) 
             gameData.boost_cooldown = 0
