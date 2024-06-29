@@ -1,5 +1,5 @@
-# Progress Knight Quest
+# Progress Knight Quest Booosted 
 
-A continuation of Progress Knight 2.0. Contains 5 prestige layers with various unique mechanics.
+now with Boosted gameplay
 
-PRs which fix bugs are welcome :)
+A continuation of Progress Knight Quest  Contains 5 prestige layers with various unique mechanics.
