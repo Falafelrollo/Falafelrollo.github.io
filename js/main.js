@@ -309,7 +309,7 @@ function applySpeed(value) {
         return 0
     if (value == Infinity)
         return Infinity
-    return value * getGameSpeed() / updateSpeed
+    return value  * getGameSpeed()/ updateSpeed
 }
 
 function applyUnpausedSpeed(value) {
@@ -415,7 +415,7 @@ function getUnpausedGameSpeed() {
     if (gameData.active_challenge == "legends_never_die")
         return Math.pow(gameSpeed, 0.75)
 
-    return gameSpeed
+    return gameSpeed  * Math.max( (1+0.01*(gameData.rebirthOneCount)),1 )
 }
 
 function applyExpenses() {
@@ -862,9 +862,9 @@ function rebirthFive() {
     gameData.boost_cooldown = 0
 
     gameData.hypercubes = 0
-    gameData.metaverse.boost_cooldown_modifier = 1
-    gameData.metaverse.boost_timer_modifier = 1
-    gameData.metaverse.boost_warp_modifier = 100
+    gameData.metaverse.boost_cooldown_modifier = 100
+    gameData.metaverse.boost_timer_modifier = 100
+    gameData.metaverse.boost_warp_modifier = 1000
     gameData.metaverse.hypercube_gain_modifier = 1
     gameData.metaverse.evil_tran_gain = 0
     gameData.metaverse.essence_gain_modifier = 0

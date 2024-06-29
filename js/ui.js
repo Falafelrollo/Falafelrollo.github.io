@@ -98,7 +98,7 @@ function renderSideBar() {
     document.getElementById("realtimeDisplay").textContent = formatTime(gameData.realtime)
     document.getElementById("boostCooldownDisplay").textContent = getBoostCooldownString()            
     document.getElementById("pauseButton").textContent = gameData.paused ? "Play" : "Pause"
-    document.getElementById("boostPanel").hidden = gameData.rebirthFiveCount == 0
+    document.getElementById("boostPanel").hidden = gameData.rebirthFiveCount < 0
     renderBoostButton("boostButton")
 
     formatCoins(gameData.coins, document.getElementById("coinDisplay"))
