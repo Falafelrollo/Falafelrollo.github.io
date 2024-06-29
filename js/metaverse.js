@@ -17,13 +17,13 @@ function getTimeTillNextHypercubePower(add_power = 0) {
 }
 
 function getBoostTimeSeconds() {
-    let defaultTime = 60.0 * gameData.metaverse.boost_timer_modifier
+    let defaultTime = 60.0 * gameData.metaverse.boost_timer_modifier * Math.max( (1+0.01*(gameData.rebirthThreeCount)),1 )
 
     return defaultTime
 }
 
 function getBoostCooldownSeconds() {
-    let defaultTime = 60.0 * 10.0 / gameData.metaverse.boost_cooldown_modifier
+    let defaultTime = 60.0 * 10.0 / (gameData.metaverse.boost_cooldown_modifier* Math.max( (1+0.01*(gameData.rebirthTwoCount)),1 ))
 
     return defaultTime
 }
