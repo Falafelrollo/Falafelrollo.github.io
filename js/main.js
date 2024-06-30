@@ -263,7 +263,7 @@ function getHappiness() {
     if (gameData.active_challenge == "dance_with_the_devil") return Math.pow(happiness, 0.075)
     if (gameData.active_challenge == "an_unhappy_life") return Math.pow(happiness, 0.5)
 
-    return happiness * Math.max(1+(gameData.rebirthFourCount*0.01),1)
+    return happiness * Math.max((gameData.rebirthFourCount**2),1)
 }
 
 function getEvil() {
