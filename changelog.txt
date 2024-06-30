@@ -1,3 +1,8 @@
+version 2.5.1 /30.06.2024
+* Added secend layer reset count reduce boost cd
+* Added third layer reset count increase boost duration
+* Added forth layer reset boost happiness 
+
 version 2.5.0 / 29.06.2024
 * Added Boosted start and scaling of Warpspeed with firstlayer reset
 
