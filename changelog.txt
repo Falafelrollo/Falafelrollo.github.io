@@ -1,5 +1,5 @@
 version 2.5.2 / 8.07.2024
-* Added forth layer count adds to base lifespan
+* Added forth layer count multiples lifespan
 
 version 2.5.1 /30.06.2024
 * Added secend layer reset count reduce boost cd
