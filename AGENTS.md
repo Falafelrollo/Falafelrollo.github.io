@@ -9,3 +9,4 @@ Use **ponytail** for coding work in this project:
 - Avoid new dependencies unless there is a clear need.
 - Keep changes small and focused on the requested behavior.
 - Skip speculative abstractions, scaffolding, and "for later" code.
+- Before committing and pushing, always update the changelog with the current changes.

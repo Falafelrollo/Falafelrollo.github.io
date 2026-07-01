@@ -1,4 +1,10 @@
-const changelogText = String.raw`version 2.5.3 / 01.07.2026
+const changelogText = String.raw`version 2.5.4 / 01.07.2026
+* Added the sixth prestige layer: Beyond.
+* Going Beyond resets through the Metaverse layer and grants Singularities based on essence.
+* Singularities multiply Hypercube gain and double happiness for each Singularity.
+* Added Beyond sidebar button, amulet note, keyboard shortcut, save data, stats, and reset bonus display.
+
+version 2.5.3 / 01.07.2026
 * Added visual reset boni stats and hide locked reset layers.
 
 version 2.5.2 / 8.07.2024
