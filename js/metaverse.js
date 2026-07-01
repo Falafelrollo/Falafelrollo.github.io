@@ -4,8 +4,20 @@ function getHypercubeGeneration() {
     let tesseractEffect = gameData.itemData["Tesseract"].getEffect()
     let hypersphereEffect = gameData.itemData["Hypersphere"].getEffect()
 
-    return 0.03 * hypersphereEffect * tesseractEffect * gameData.metaverse.hypercube_gain_modifier * (gameData.perks.hypercube_boost == 1 ? 10 : 1)
+    return 0.03 * hypersphereEffect * tesseractEffect * gameData.metaverse.hypercube_gain_modifier * getSingularityEffect() * (gameData.perks.hypercube_boost == 1 ? 10 : 1)
         * (gameData.perks.hyper_speed == 1 ? 1000 : 1)
+}
+
+function getSingularityGain() {
+    return gameData.essence >= 1e300 ? Math.floor(Math.log10(gameData.essence)) - 299 : 0
+}
+
+function getSingularityEffect() {
+    return gameData.singularities + 1
+}
+
+function getSingularityHappinessEffect() {
+    return Math.pow(2, gameData.singularities)
 }
 
 function getNextPowerOfNumber(number, add_power = 0) {

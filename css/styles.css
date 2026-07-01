@@ -526,6 +526,9 @@ button:focus {
 .color-perk-points {
     color: rgb(217, 24, 119);
 }
+.color-singularities {
+    color: rgb(255, 196, 69);
+}
 .color-income {
     color: lightgreen;
 }

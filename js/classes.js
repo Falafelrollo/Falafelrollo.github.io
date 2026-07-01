@@ -413,6 +413,17 @@ class HypercubeRequirement extends Requirement {
     }
 }
 
+class SingularityRequirement extends Requirement {
+    constructor(querySelectors, requirements) {
+        super(querySelectors, requirements)
+        this.type = "singularity"
+    }
+
+    getCondition(isHero, requirement) {
+        return gameData.singularities >= requirement.requirement
+    }
+}
+
 class PerkPointRequirement extends Requirement {
     constructor(querySelectors, requirements) {
         super(querySelectors, requirements)

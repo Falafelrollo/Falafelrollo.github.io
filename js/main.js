@@ -263,7 +263,7 @@ function getHappiness() {
     if (gameData.active_challenge == "dance_with_the_devil") return Math.pow(happiness, 0.075)
     if (gameData.active_challenge == "an_unhappy_life") return Math.pow(happiness, 0.5)
 
-    return happiness * Math.max((gameData.rebirthFourCount**4),1)
+    return happiness * Math.max((gameData.rebirthFourCount**4),1) * getSingularityHappinessEffect()
 }
 
 function getEvil() {
@@ -635,6 +635,7 @@ function increaseRealtime() {
     gameData.rebirthThreeTime += realDiff
     gameData.rebirthFourTime += realDiff
     gameData.rebirthFiveTime += realDiff
+    gameData.rebirthSixTime += realDiff
 
     if (gameData.boost_active) {
         gameData.boost_timer -= realDiff
@@ -861,6 +862,20 @@ function rebirthFive() {
     }
 
     gameData.active_challenge = ""
+}
+
+function rebirthSix() {
+    if (!gameData.requirements["Rebirth button 6"].isCompleted())
+        return;
+
+    gameData.rebirthSixCount += 1
+    gameData.singularities += getSingularityGain()
+
+    if (gameData.stats.fastest6 == null || gameData.rebirthSixTime < gameData.stats.fastest6)
+        gameData.stats.fastest6 = gameData.rebirthSixTime
+
+    rebirthFive()
+    gameData.rebirthSixTime = 0
 }
 
 function applyMilestones() {
@@ -1107,6 +1122,8 @@ function assignMethods() {
             requirement = Object.assign(new MetaverseRequirement(requirement.querySelectors, requirement.requirements), requirement)
         } else if (requirement.type == "hypercube") {
             requirement = Object.assign(new HypercubeRequirement(requirement.querySelectors, requirement.requirements), requirement)
+        } else if (requirement.type == "singularity") {
+            requirement = Object.assign(new SingularityRequirement(requirement.querySelectors, requirement.requirements), requirement)
         } else if (requirement.type == "perkpoint") {
             requirement = Object.assign(new PerkPointRequirement(requirement.querySelectors, requirement.requirements), requirement)
         }
@@ -1219,6 +1236,9 @@ function loadGameData() {
             if (gameData.hypercubes == null || isNaN(gameData.hypercubes))
                 gameData.hypercubes = 0
 
+            if (gameData.singularities == null || isNaN(gameData.singularities))
+                gameData.singularities = 0
+
             if (gameData.perks_points == null || isNaN(gameData.perks_points))
                 gameData.perks_points = 0
 
@@ -1240,6 +1260,14 @@ function loadGameData() {
 
             if (gameData.rebirthFourTime == null || gameData.rebirthFourTime === 0) {
                 gameData.rebirthFourTime = gameData.realtime
+            }
+
+            if (gameData.rebirthFiveTime == null || gameData.rebirthFiveTime === 0) {
+                gameData.rebirthFiveTime = gameData.realtime
+            }
+
+            if (gameData.rebirthSixTime == null || gameData.rebirthSixTime === 0) {
+                gameData.rebirthSixTime = gameData.realtime
             }
 
             // Remove invalid active misc items

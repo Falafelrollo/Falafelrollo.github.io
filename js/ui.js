@@ -127,6 +127,9 @@ function renderSideBar() {
     document.getElementById("timeWarpingDisplay").textContent = "x" + format(getUnpausedGameSpeed() / baseGameSpeed, 2)
 
     document.getElementById("hypercubesDisplay").textContent = formatTreshold(gameData.hypercubes)
+    document.getElementById("singularitiesDisplay").textContent = formatTreshold(gameData.singularities)
+    document.getElementById("singularityGainDisplay").textContent = formatTreshold(getSingularityGain())
+    document.getElementById("singularityGainButtonDisplay").textContent = "+" + formatTreshold(getSingularityGain())
 
 
     document.getElementById("hypercubeCapText").hidden = gameData.rebirthFiveCount == 0 || getTotalPerkPoints() > 0
@@ -772,38 +775,48 @@ function renderSettings() {
     else
         document.getElementById("statsRebirth5").classList.add("hidden")
 
+    if (gameData.rebirthSixCount > 0)
+        document.getElementById("statsRebirth6").classList.remove("hidden")
+    else
+        document.getElementById("statsRebirth6").classList.add("hidden")
+
     document.getElementById("rebirthOneCountDisplay").textContent = gameData.rebirthOneCount
     document.getElementById("rebirthTwoCountDisplay").textContent = gameData.rebirthTwoCount
     document.getElementById("rebirthThreeCountDisplay").textContent = gameData.rebirthThreeCount
     document.getElementById("rebirthFourCountDisplay").textContent = gameData.rebirthFourCount
     document.getElementById("rebirthFiveCountDisplay").textContent = gameData.rebirthFiveCount
+    document.getElementById("rebirthSixCountDisplay").textContent = gameData.rebirthSixCount
 
     document.getElementById("rebirthOneTimeDisplay").textContent = formatTime(gameData.rebirthOneTime, true)
     document.getElementById("rebirthTwoTimeDisplay").textContent = formatTime(gameData.rebirthTwoTime, true)
     document.getElementById("rebirthThreeTimeDisplay").textContent = formatTime(gameData.rebirthThreeTime, true)
     document.getElementById("rebirthFourTimeDisplay").textContent = formatTime(gameData.rebirthFourTime, true)
     document.getElementById("rebirthFiveTimeDisplay").textContent = formatTime(gameData.rebirthFiveTime, true)
+    document.getElementById("rebirthSixTimeDisplay").textContent = formatTime(gameData.rebirthSixTime, true)
 
     document.getElementById("rebirthOneFastestDisplay").textContent = formatTime(gameData.stats.fastest1, true)
     document.getElementById("rebirthTwoFastestDisplay").textContent = formatTime(gameData.stats.fastest2, true)
     document.getElementById("rebirthThreeFastestDisplay").textContent = formatTime(gameData.stats.fastest3, true)
     document.getElementById("rebirthFourFastestDisplay").textContent = formatTime(gameData.stats.fastest4, true)
     document.getElementById("rebirthFiveFastestDisplay").textContent = formatTime(gameData.stats.fastest5, true)
+    document.getElementById("rebirthSixFastestDisplay").textContent = formatTime(gameData.stats.fastest6, true)
 
     // Reset Boni
     document.getElementById("statsResetBoni").classList.toggle("hidden",
-        gameData.rebirthOneCount + gameData.rebirthTwoCount + gameData.rebirthThreeCount + gameData.rebirthFourCount + gameData.rebirthFiveCount == 0)
+        gameData.rebirthOneCount + gameData.rebirthTwoCount + gameData.rebirthThreeCount + gameData.rebirthFourCount + gameData.rebirthFiveCount + gameData.rebirthSixCount == 0)
     document.getElementById("resetBonusOne").classList.toggle("hidden", gameData.rebirthOneCount == 0)
     document.getElementById("resetBonusTwo").classList.toggle("hidden", gameData.rebirthTwoCount == 0)
     document.getElementById("resetBonusThree").classList.toggle("hidden", gameData.rebirthThreeCount == 0)
     document.getElementById("resetBonusFour").classList.toggle("hidden", gameData.rebirthFourCount == 0)
     document.getElementById("resetBonusFive").classList.toggle("hidden", gameData.rebirthFiveCount == 0)
+    document.getElementById("resetBonusSix").classList.toggle("hidden", gameData.rebirthSixCount == 0)
     document.getElementById("resetBonusOneDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthOneCount, 1), 2)
     document.getElementById("resetBonusTwoDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthTwoCount, 1), 2)
     document.getElementById("resetBonusThreeDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthThreeCount, 1), 2)
     document.getElementById("resetBonusFourDisplay").textContent = format(Math.max(gameData.rebirthFourCount ** 4, 1), 2)
     const hypercubeCap = getHypercubeCap()
     document.getElementById("resetBonusFiveDisplay").textContent = gameData.rebirthFiveCount > 0 ? (hypercubeCap == Infinity ? "Infinity" : format(hypercubeCap)) : "Locked"
+    document.getElementById("resetBonusSixDisplay").textContent = format(getSingularityEffect())
 
     // Gain Stats
     document.getElementById("evilPerSecondDisplay").textContent = format(gameData.stats.EvilPerSecond, 3)
@@ -1458,6 +1471,10 @@ window.addEventListener('keydown', function (e) {
 
         if (e.key == "g") {
             rebirthFive()
+        }
+
+        if (e.key == "b") {
+            rebirthSix()
         }
 
         switch (e.key) {

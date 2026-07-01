@@ -19,6 +19,7 @@
     dark_matter: 0,
     dark_orbs: 0,
     hypercubes: 0,
+    singularities: 0,
     perks_points: 0,
     perks: {
         auto_dark_orb: 0,
@@ -53,6 +54,8 @@
     rebirthFourTime: 0,
     rebirthFiveCount: 0,
     rebirthFiveTime: 0,
+    rebirthSixCount: 0,
+    rebirthSixTime: 0,
 
     currentJob: null,
     currentProperty: null,
@@ -74,6 +77,8 @@
         fastest2: null,
         fastest3: null,
         fastest4: null,
+        fastest5: null,
+        fastest6: null,
         fastestGame: null,
         EvilPerSecond: 0,
         maxEvilPerSecond: 0,
@@ -332,12 +337,14 @@ const requirementsBaseData = {
     "Rebirth note 6": new TaskRequirement(["#rebirthNote6"], [{ task: "Cosmic Recollection", requirement: 1 }]),
     "Rebirth note 7": new EssenceRequirement(["#rebirthNote7"], [{ requirement: 5e10 }]),
     "Rebirth note 8": new EssenceRequirement(["#rebirthNote8"], [{ requirement: 1e60 }]),
+    "Rebirth note 9": new EssenceRequirement(["#rebirthNote9"], [{ requirement: 1e300 }]),
 
     "Rebirth button 1": new AgeRequirement(["#rebirthButton1"], [{ requirement: 65 }]),
     "Rebirth button 2": new AgeRequirement(["#rebirthButton2"], [{ requirement: 200 }]),
     "Rebirth button 3": new TaskRequirement(["#rebirthButton3"], [{ task: "Cosmic Recollection", requirement: 1 }]),
     "Rebirth button 4": new EssenceRequirement(["#rebirthButton4"], [{ requirement: 5e10 }]),
     "Rebirth button 5": new EssenceRequirement(["#rebirthButton5"], [{ requirement: 1e60 }]),
+    "Rebirth button 6": new EssenceRequirement(["#rebirthButton6"], [{ requirement: 1e300 }]),
 
     "Rebirth stats evil": new AgeRequirement(["#statsEvilGain"], [{ requirement: 200 }]),
     "Rebirth stats essence": new TaskRequirement(["#statsEssenceGain"], [{ task: "Cosmic Recollection", requirement: 1 }]),
@@ -349,6 +356,7 @@ const requirementsBaseData = {
     "Dark Matter info": new DarkMatterRequirement(["#darkMatterInfo"], [{ requirement: 1 }]),
     "Dark Orbs info": new DarkOrbsRequirement(["#darkOrbsInfo"], [{ requirement: 1 }]),
     "Hypercubes info": new HypercubeRequirement(["#hypercubesInfo"], [{ requirement: 1 }]),
+    "Singularities info": new SingularityRequirement(["#singularitiesInfo"], [{ requirement: 1 }]),
 
     // Common work
     "Beggar": new TaskRequirement([getQuerySelector("Beggar")], []),
@@ -561,6 +569,7 @@ const requirementsBaseData = {
     "key3": new TaskRequirement(["#key3"], [{ task: "Cosmic Recollection", requirement: 1 }]),
     "key4": new EssenceRequirement(["#key4"], [{ requirement: 5e10 }]),
     "key5": new EssenceRequirement(["#key5"], [{ requirement: 1e90 }]),
+    "key6": new EssenceRequirement(["#key6"], [{ requirement: 1e300 }]),
 
     // Evil perks
     "Evil perk essence": new EssenceRequirement(["#evilperk5"], [{ requirement: 150000000 }]),

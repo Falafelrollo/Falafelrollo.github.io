@@ -121,6 +121,10 @@
 					<div class="text-caption"><span class="color-hypercubes">Hypercubes: </span><span id="hypercubesDisplay"></span></div>
 					<div style="color: gray" class="sidebar-element">for Metaverse sacrifices</div>
 				</div>
+				<div id="singularitiesInfo" class="hidden">
+					<div class="text-caption"><span class="color-singularities">Singularities: </span><span id="singularitiesDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">Multiply Hypercube gain and happiness</div>
+				</div>
 				<div id="rebirthButton1" class="hidden">
 					<button class="w3-button button" style="margin-bottom: 0.1em; margin-top: 0.8em; width: 100%" onClick="rebirthOne()">Touch the eye</button>
 				</div>
@@ -135,6 +139,9 @@
 				</div>
 				<div id="rebirthButton5" class="hidden">
 					<button class="w3-button button" style="margin-bottom: 0.1em; margin-top: 0.8em; width: 100% " onClick="rebirthFive()">Metaverse: <span id="metaversePerkPointsGainButtonDisplay"></span></button>
+				</div>
+				<div id="rebirthButton6" class="hidden">
+					<button class="w3-button button" style="margin-bottom: 0.1em; margin-top: 0.8em; width: 100% " onClick="rebirthSix()">Beyond: <span class="color-singularities" id="singularityGainButtonDisplay"></span></button>
 				</div>
 			</div>
 			<div class="column">
@@ -541,6 +548,18 @@
 											<br>
 											<button class="w3-button button" style="margin-bottom: 0.4em; margin-top: 0.4em " onClick="rebirthFive()">Go to Metaverse</button>
 										</li>
+										<li id="rebirthNote9" class="hidden">
+											<i class="color-singularities">
+												You can go Beyond!
+											</i>
+											<i style="color: grey">
+												<br>
+												Going Beyond resets everything a Metaverse reset does, and grants <span class="color-singularities"><span id="singularityGainDisplay"></span> Singularities</span>.
+												Each Singularity multiplies Hypercube gain and doubles happiness.
+											</i>
+											<br>
+											<button class="w3-button button" style="margin-bottom: 0.4em; margin-top: 0.4em " onClick="rebirthSix()">Go Beyond</button>
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -894,6 +913,7 @@
 												<div id="key3" class="hidden">t - Transcend</div>
 												<div id="key4" class="hidden">u - Collapse the universe</div>
 												<div id="key5" class="hidden">g - Go to Metaverse</div>
+												<div id="key6" class="hidden">b - Go Beyond</div>
 												<div id="keyChallenge" class="hidden">1 - Enter / Exit Challenge 1, etc</div>
 											</div>
 										</li>
@@ -961,6 +981,13 @@
 											<li>Your fastest Metaverse is in <span id="rebirthFiveFastestDisplay"></span>.</li>
 										</ul>
 									</div>
+									<div id="statsRebirth6" class="hidden">
+										<ul>
+											<li>You went Beyond <span id="rebirthSixCountDisplay"></span> times.</li>
+											<li>You have spent <span id="rebirthSixTimeDisplay"></span> Beyond.</li>
+											<li>Your fastest Beyond is in <span id="rebirthSixFastestDisplay"></span>.</li>
+										</ul>
+									</div>
 									<div id="statsResetBoni" class="hidden">
 										<div class="text-caption" style="margin-left: 1.6em;">Reset Boni</div>
 										<div class="stat-bonus-grid">
@@ -988,6 +1015,11 @@
 												<div class="stat-bonus-title">Metaverses</div>
 												<div class="stat-bonus-value color-hypercubes"><span id="resetBonusFiveDisplay"></span></div>
 												<div class="stat-bonus-detail">Hypercube cap</div>
+											</div>
+											<div id="resetBonusSix" class="stat-bonus hidden">
+												<div class="stat-bonus-title">Beyond</div>
+												<div class="stat-bonus-value color-singularities">x<span id="resetBonusSixDisplay"></span></div>
+												<div class="stat-bonus-detail">Hypercube gain, 2x happiness each</div>
 											</div>
 										</div>
 									</div>
