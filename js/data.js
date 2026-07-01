@@ -144,7 +144,7 @@ const baseLifespan = 365 * 70
 const baseGameSpeed = 4
 const heroIncomeMult = 2.5e18
 
-const permanentUnlocks = ["Quick task display", "Evil perks", "Rebirth tab", "Dark Matter", "Dark Matter Skills", "Dark Matter Skills2", "Metaverse", "Metaverse Perks", "Metaverse Perks Button", "Congratulations"]
+const permanentUnlocks = ["Quick task display", "Evil perks", "Rebirth tab", "Dark Matter", "Dark Matter Skills", "Dark Matter Skills2", "Metaverse", "Metaverse Perks", "Metaverse Perks Button"]
 const metaverseUnlocks = ["Reduce Boost Cooldown", "Increase Boost Duration", "Increase Hypercube Gain", "Gain evil at new transcension",
     "Essence gain multiplier", "Challenges are not reset", "Dark Matter gain multiplier"]
 const darkMatterSkillNames = ["speed_is_life", "your_greatest_debt", "essence_collector", "explosion_of_the_universe", "multiverse_explorer"]
@@ -574,7 +574,6 @@ const requirementsBaseData = {
     // Evil perks
     "Evil perk essence": new EssenceRequirement(["#evilperk5"], [{ requirement: 150000000 }]),
 
-    "Congratulations": new EssenceRequirement(["#Congratulations"], [{ requirement: 1e300 }]),
 }
 
 const jobCategories = {

@@ -1,4 +1,8 @@
-const changelogText = String.raw`version 2.5.4 / 01.07.2026
+const changelogText = String.raw`version 2.5.5 / 01.07.2026
+* Removed the old 1e300 essence game-completion message because Beyond continues the game.
+* Updated The End milestone description to point players toward Beyond.
+
+version 2.5.4 / 01.07.2026
 * Added the sixth prestige layer: Beyond.
 * Going Beyond resets through the Metaverse layer and grants Singularities based on essence.
 * Singularities multiply Hypercube gain and double happiness for each Singularity.
