@@ -1,3 +1,6 @@
+version Unreleased / 01.07.2026
+* Added visual reset boni stats and hide locked reset layers.
+
 version 2.5.2 / 8.07.2024
 * Added forth layer count multiples lifespan
 

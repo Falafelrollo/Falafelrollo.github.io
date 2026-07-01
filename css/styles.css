@@ -357,6 +357,31 @@ button:focus {
     margin-bottom: 4em;
 }
 
+.stat-bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    gap: 0.6em;
+    margin: 0.5em 1.6em 1em 1.6em;
+}
+
+.stat-bonus {
+    border: 0.1em solid #666;
+    padding: 0.7em;
+}
+
+.stat-bonus-title {
+    color: gray;
+}
+
+.stat-bonus-value {
+    font-size: 180%;
+    font-weight: bold;
+}
+
+.stat-bonus-detail {
+    color: gray;
+}
+
 .baritem {
     width: 8.1rem;
     height: auto;

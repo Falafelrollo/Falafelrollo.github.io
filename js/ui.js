@@ -790,6 +790,21 @@ function renderSettings() {
     document.getElementById("rebirthFourFastestDisplay").textContent = formatTime(gameData.stats.fastest4, true)
     document.getElementById("rebirthFiveFastestDisplay").textContent = formatTime(gameData.stats.fastest5, true)
 
+    // Reset Boni
+    document.getElementById("statsResetBoni").classList.toggle("hidden",
+        gameData.rebirthOneCount + gameData.rebirthTwoCount + gameData.rebirthThreeCount + gameData.rebirthFourCount + gameData.rebirthFiveCount == 0)
+    document.getElementById("resetBonusOne").classList.toggle("hidden", gameData.rebirthOneCount == 0)
+    document.getElementById("resetBonusTwo").classList.toggle("hidden", gameData.rebirthTwoCount == 0)
+    document.getElementById("resetBonusThree").classList.toggle("hidden", gameData.rebirthThreeCount == 0)
+    document.getElementById("resetBonusFour").classList.toggle("hidden", gameData.rebirthFourCount == 0)
+    document.getElementById("resetBonusFive").classList.toggle("hidden", gameData.rebirthFiveCount == 0)
+    document.getElementById("resetBonusOneDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthOneCount, 1), 2)
+    document.getElementById("resetBonusTwoDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthTwoCount, 1), 2)
+    document.getElementById("resetBonusThreeDisplay").textContent = format(Math.max(1 + 0.01 * gameData.rebirthThreeCount, 1), 2)
+    document.getElementById("resetBonusFourDisplay").textContent = format(Math.max(gameData.rebirthFourCount ** 4, 1), 2)
+    const hypercubeCap = getHypercubeCap()
+    document.getElementById("resetBonusFiveDisplay").textContent = gameData.rebirthFiveCount > 0 ? (hypercubeCap == Infinity ? "Infinity" : format(hypercubeCap)) : "Locked"
+
     // Gain Stats
     document.getElementById("evilPerSecondDisplay").textContent = format(gameData.stats.EvilPerSecond, 3)
     document.getElementById("maxEvilPerSecondDisplay").textContent = format(gameData.stats.maxEvilPerSecond, 3)
