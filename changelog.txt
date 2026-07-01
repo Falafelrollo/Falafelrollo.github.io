@@ -1,3 +1,7 @@
+version 2.5.8 / 01.07.2026
+* Cleaned up reset bonus stat labels for Eye touches, Collapses, and Beyond.
+* Beyond reset stats now show total happiness bonus separately from Hypercube gain.
+
 version 2.5.7 / 01.07.2026
 * Resets now keep the currently selected tab instead of jumping back to Hero.
 

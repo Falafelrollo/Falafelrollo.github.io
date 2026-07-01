@@ -819,6 +819,7 @@ function renderSettings() {
     document.getElementById("metaversePerkPointResetBonusInfo").hidden = gameData.infiniteHypercubeCapResets == 0
     document.getElementById("metaversePerkPointResetBonusDisplay").textContent = format(getMetaversePerkPointResetBonus(), 2)
     document.getElementById("resetBonusSixDisplay").textContent = format(getSingularityEffect())
+    document.getElementById("resetBonusSixHappinessDisplay").textContent = format(getSingularityHappinessEffect())
 
     // Gain Stats
     document.getElementById("evilPerSecondDisplay").textContent = format(gameData.stats.EvilPerSecond, 3)
