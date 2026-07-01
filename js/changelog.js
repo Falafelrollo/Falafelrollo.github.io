@@ -1,4 +1,7 @@
-const changelogText = String.raw`version 2.5.8 / 01.07.2026
+const changelogText = String.raw`version 2.5.9 / 01.07.2026
+* Split Collapse reset bonus stats into separate happiness and lifespan values.
+
+version 2.5.8 / 01.07.2026
 * Cleaned up reset bonus stat labels for Eye touches, Collapses, and Beyond.
 * Beyond reset stats now show total happiness bonus separately from Hypercube gain.
 
