@@ -1,4 +1,7 @@
-const changelogText = String.raw`version 2.5.6 / 01.07.2026
+const changelogText = String.raw`version 2.5.7 / 01.07.2026
+* Resets now keep the currently selected tab instead of jumping back to Hero.
+
+version 2.5.6 / 01.07.2026
 * Metaverse resets keep increasing the Hypercube cap until it reaches Infinity.
 * After the Hypercube cap reaches Infinity, each Metaverse reset adds a stacking x1.1 multiplier to future Metaverse perk point gain.
 

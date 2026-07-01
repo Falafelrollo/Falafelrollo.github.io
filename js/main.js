@@ -923,18 +923,7 @@ function applyMilestones() {
 
 function rebirthReset(set_tab_to_jobs = true) {
     if (set_tab_to_jobs) {
-        // if (gameData.settings.selectedTab == Tab.METAVERSE && gameData.perks.)
-
-        if (gameData.settings.selectedTab == Tab.METAVERSE && gameData.hypercubes > 0
-            || gameData.settings.selectedTab == Tab.CHALLENGES && gameData.evil > 10000
-            || gameData.settings.selectedTab == Tab.MILESTONES && gameData.essence > 0
-            || gameData.settings.selectedTab == Tab.DARK_MATTER && gameData.dark_matter > 0
-            || gameData.settings.selectedTab == Tab.REBIRTH
-            || gameData.settings.selectedTab == Tab.EVILPERKS 
-        ) {
-            // do not switch tab
-        }
-        else
+        if (document.getElementById(gameData.settings.selectedTab) == null)
             setTab("jobs")
     }
 
