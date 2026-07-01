@@ -168,9 +168,14 @@ function getMetaversePerkPointsGain() {
     if (gameData.essence >= 1e90)
         return (gameData.perks.more_perk_points == 1 ? 10 : 1)
             * (gameData.perks.double_perk_points_gain == 1 ? 2 : 1)
+            * getMetaversePerkPointResetBonus()
             * (Math.floor(Math.log10(gameData.essence)) - 89)
 
     return 0
+}
+
+function getMetaversePerkPointResetBonus() {
+    return Math.pow(1.1, gameData.infiniteHypercubeCapResets || 0)
 }
 
 const perks_cost = {

@@ -54,6 +54,7 @@
     rebirthFourTime: 0,
     rebirthFiveCount: 0,
     rebirthFiveTime: 0,
+    infiniteHypercubeCapResets: 0,
     rebirthSixCount: 0,
     rebirthSixTime: 0,
 

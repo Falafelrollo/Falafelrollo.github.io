@@ -816,6 +816,8 @@ function renderSettings() {
     document.getElementById("resetBonusFourDisplay").textContent = format(Math.max(gameData.rebirthFourCount ** 4, 1), 2)
     const hypercubeCap = getHypercubeCap()
     document.getElementById("resetBonusFiveDisplay").textContent = gameData.rebirthFiveCount > 0 ? (hypercubeCap == Infinity ? "Infinity" : format(hypercubeCap)) : "Locked"
+    document.getElementById("metaversePerkPointResetBonusInfo").hidden = gameData.infiniteHypercubeCapResets == 0
+    document.getElementById("metaversePerkPointResetBonusDisplay").textContent = format(getMetaversePerkPointResetBonus(), 2)
     document.getElementById("resetBonusSixDisplay").textContent = format(getSingularityEffect())
 
     // Gain Stats

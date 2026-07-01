@@ -1,4 +1,8 @@
-const changelogText = String.raw`version 2.5.5 / 01.07.2026
+const changelogText = String.raw`version 2.5.6 / 01.07.2026
+* Metaverse resets keep increasing the Hypercube cap until it reaches Infinity.
+* After the Hypercube cap reaches Infinity, each Metaverse reset adds a stacking x1.1 multiplier to future Metaverse perk point gain.
+
+version 2.5.5 / 01.07.2026
 * Removed the old 1e300 essence game-completion message because Beyond continues the game.
 * Updated The End milestone description to point players toward Beyond.
 

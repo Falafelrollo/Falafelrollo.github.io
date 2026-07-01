@@ -804,8 +804,11 @@ function rebirthFive() {
     if (!gameData.requirements["Rebirth button 5"].isCompleted())
         return;
 
+    const hadInfiniteHypercubeCap = getHypercubeCap() == Infinity
     gameData.rebirthFiveCount += 1
     gameData.perks_points += getMetaversePerkPointsGain()
+    if (hadInfiniteHypercubeCap)
+        gameData.infiniteHypercubeCapResets += 1
     gameData.essence = 0
     gameData.evil = 0
     gameData.evil_perks_points = 0
@@ -1264,6 +1267,10 @@ function loadGameData() {
 
             if (gameData.rebirthFiveTime == null || gameData.rebirthFiveTime === 0) {
                 gameData.rebirthFiveTime = gameData.realtime
+            }
+
+            if (gameData.infiniteHypercubeCapResets == null || isNaN(gameData.infiniteHypercubeCapResets)) {
+                gameData.infiniteHypercubeCapResets = 0
             }
 
             if (gameData.rebirthSixTime == null || gameData.rebirthSixTime === 0) {
