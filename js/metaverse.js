@@ -40,19 +40,26 @@ function applyBoost() {
 }
 
 // shop
+function canAffordHypercubes(cost) {
+    return gameData.hypercubes >= cost
+}
+
+function buyMetaverseUpgrade(cost, key, value = gameData.metaverse[key] + 1) {
+    if (!canAffordHypercubes(cost)) return
+    gameData.hypercubes -= cost
+    gameData.metaverse[key] = value
+}
+
 function reduceBoostCooldownCost() {
     return 1000 * Math.pow(3, gameData.metaverse.boost_cooldown_modifier - 1)
 }
 
 function canBuyReduceBoostCooldown() {
-    return gameData.hypercubes >= reduceBoostCooldownCost()
+    return canAffordHypercubes(reduceBoostCooldownCost())
 }
 
 function buyReduceBoostCooldown() {
-    if (canBuyReduceBoostCooldown()) {
-        gameData.hypercubes -= reduceBoostCooldownCost()
-        gameData.metaverse.boost_cooldown_modifier += 1        
-    }
+    buyMetaverseUpgrade(reduceBoostCooldownCost(), "boost_cooldown_modifier")
 }
 
 
@@ -61,14 +68,11 @@ function boostDurationCost() {
 }
 
 function canBuyBoostDuration() {
-    return gameData.hypercubes >= boostDurationCost()
+    return canAffordHypercubes(boostDurationCost())
 }
 
 function buyBoostDuration() {
-    if (canBuyBoostDuration()) {
-        gameData.hypercubes -= boostDurationCost()
-        gameData.metaverse.boost_timer_modifier += 1
-    }
+    buyMetaverseUpgrade(boostDurationCost(), "boost_timer_modifier")
 }
 
 
@@ -77,14 +81,11 @@ function hypercubeGainCost() {
 }
 
 function canBuyHypercubeGain() {
-    return gameData.hypercubes >= hypercubeGainCost()
+    return canAffordHypercubes(hypercubeGainCost())
 }
 
 function buyHypercubeGain() {
-    if (canBuyHypercubeGain()) {
-        gameData.hypercubes -= hypercubeGainCost()
-        gameData.metaverse.hypercube_gain_modifier += 1
-    }
+    buyMetaverseUpgrade(hypercubeGainCost(), "hypercube_gain_modifier")
 }
 
 function evilTranGain() {
@@ -96,14 +97,11 @@ function evilTranCost() {
 }
 
 function canBuyEvilTran() {
-    return gameData.hypercubes >= evilTranCost()
+    return canAffordHypercubes(evilTranCost())
 }
 
 function buyEvilTran() {
-    if (canBuyEvilTran()) {
-        gameData.hypercubes -= evilTranCost()
-        gameData.metaverse.evil_tran_gain += 1
-    }
+    buyMetaverseUpgrade(evilTranCost(), "evil_tran_gain")
 }
 
 function essenceMultGain() {
@@ -115,14 +113,11 @@ function essenceMultCost() {
 }
 
 function canBuyEssenceMult() {
-    return gameData.hypercubes >= essenceMultCost()
+    return canAffordHypercubes(essenceMultCost())
 }
 
 function buyEssenceMult() {
-    if (canBuyEssenceMult()) {
-        gameData.hypercubes -= essenceMultCost()
-        gameData.metaverse.essence_gain_modifier += 1
-    }
+    buyMetaverseUpgrade(essenceMultCost(), "essence_gain_modifier")
 }
 
 
@@ -131,14 +126,11 @@ function challengeAltarCost() {
 }
 
 function canBuyChallengeAltar() {
-    return gameData.metaverse.challenge_altar == 0 && gameData.hypercubes >= challengeAltarCost()
+    return gameData.metaverse.challenge_altar == 0 && canAffordHypercubes(challengeAltarCost())
 }
 
 function buyChallengeAltar() {
-    if (canBuyChallengeAltar()) {
-        gameData.hypercubes -= challengeAltarCost()
-        gameData.metaverse.challenge_altar = 1
-    }
+    if (canBuyChallengeAltar()) buyMetaverseUpgrade(challengeAltarCost(), "challenge_altar", 1)
 }
 
 
@@ -151,14 +143,11 @@ function darkMatterMultCost() {
 }
 
 function canBuyDarkMatterMult() {
-    return gameData.hypercubes >= darkMatterMultCost()
+    return canAffordHypercubes(darkMatterMultCost())
 }
 
 function buyDarkMaterMult() {
-    if (canBuyDarkMatterMult()) {
-        gameData.hypercubes -= darkMatterMultCost()
-        gameData.metaverse.dark_mater_gain_modifer += 1
-    }
+    buyMetaverseUpgrade(darkMatterMultCost(), "dark_mater_gain_modifer")
 }
 
 // perks

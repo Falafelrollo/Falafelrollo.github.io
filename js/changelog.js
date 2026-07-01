@@ -1,4 +1,4 @@
-version 2.5.3 / 01.07.2026
+const changelogText = String.raw`version 2.5.3 / 01.07.2026
 * Added visual reset boni stats and hide locked reset layers.
 
 version 2.5.2 / 8.07.2024
@@ -7,7 +7,7 @@ version 2.5.2 / 8.07.2024
 version 2.5.1 /30.06.2024
 * Added secend layer reset count reduce boost cd
 * Added third layer reset count increase boost duration
-* Added forth layer reset boost happiness 
+* Added forth layer reset boost happiness
 
 version 2.5.0 / 29.06.2024
 * Added Boosted start and scaling of Warpspeed with firstlayer reset
@@ -158,22 +158,22 @@ version 2.1.12 / 25.11.2022
 * added Stats Page
 * added Changelog
 
-version 2.1.11 / 24.11.2022 
+version 2.1.11 / 24.11.2022
 * improved code quality
 
-version 2.1.10 / 23.11.2022 
-* tooltip for auto-buy 
+version 2.1.10 / 23.11.2022
+* tooltip for auto-buy
 
-version 2.1.9 / 21.11.2022 
+version 2.1.9 / 21.11.2022
 * Heroic Milestones rebalanced completely
 * Show effect description for Milestones from game data
 * small UI update
 * fixes for infinity values
 
-version 2.1.8a / 20.11.2022 
+version 2.1.8a / 20.11.2022
 * bugfix
 
-version 2.1.8 / 19.11.2022 
+version 2.1.8 / 19.11.2022
 * Great Cosmic Recollection is really Great now!
 * fix for items circular icons
 * update for milestone tooltips
@@ -188,14 +188,14 @@ version 2.1.6 / 17.11.2022
 * UI overhaul. Options for Standard or "W I D E"
 * default UI is Standard
 * You can change font-size now
-* added Greater jobs, skills and items 
+* added Greater jobs, skills and items
 * Essence Milestones are completed
 * Engineering notation added
 * the game can be completed many times, each time will be added boost
 * Click on items table header to enable auto-buy
 
 version 2.1.5 / 16.11.2022
-* new format for Age display 
+* new format for Age display
 * Milestone "Warp Drive" renamed to "Eternal Time"
 * 3 New Milestones
 
@@ -239,3 +239,4 @@ version 2.1.0 / 11.11.2022
 * jobs and skills progress simultaneously
 * auto select best job
 * auto-buy for items
+`;

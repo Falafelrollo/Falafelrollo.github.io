@@ -1,18 +1,25 @@
 // Costs Dark Matter
+function canBuyDarkMatterShop(cost, currency = "dark_orbs") {
+    return gameData[currency] >= cost && cost != Infinity
+}
+
+function buyDarkMatterShop(cost, key, currency = "dark_orbs", value = gameData.dark_matter_shop[key] + 1) {
+    if (!canBuyDarkMatterShop(cost, currency)) return
+    gameData[currency] -= cost
+    gameData.dark_matter_shop[key] = value
+}
+
 function getDarkOrbGeneratorCost() {
     return 1 + 3 * gameData.dark_matter_shop.dark_orb_generator
 }
 
 function canBuyDarkOrbGenerator() {
-    return gameData.dark_matter >= getDarkOrbGeneratorCost() && getDarkOrbGeneration() != Infinity
+    return canBuyDarkMatterShop(getDarkOrbGeneratorCost(), "dark_matter") && getDarkOrbGeneration() != Infinity
 }
 
 
 function buyDarkOrbGenerator() {
-    if (canBuyDarkOrbGenerator()) {
-        gameData.dark_matter -= getDarkOrbGeneratorCost()
-        gameData.dark_matter_shop.dark_orb_generator += 1
-    }
+    if (canBuyDarkOrbGenerator()) buyDarkMatterShop(getDarkOrbGeneratorCost(), "dark_orb_generator", "dark_matter")
 }
 
 // Costs Dark Orbs
@@ -21,14 +28,11 @@ function getADealWithTheChairmanCost() {
 }
 
 function canBuyADealWithTheChairman() {
-    return gameData.dark_orbs >= getADealWithTheChairmanCost() && getADealWithTheChairmanCost() != Infinity
+    return canBuyDarkMatterShop(getADealWithTheChairmanCost())
 }
 
 function buyADealWithTheChairman() {
-    if (canBuyADealWithTheChairman()) {
-        gameData.dark_orbs -= getADealWithTheChairmanCost()
-        gameData.dark_matter_shop.a_deal_with_the_chairman += 1
-    }
+    buyDarkMatterShop(getADealWithTheChairmanCost(), "a_deal_with_the_chairman")
 }
 
 function getAGiftFromGodCost() {
@@ -36,14 +40,11 @@ function getAGiftFromGodCost() {
 }
 
 function canBuyAGiftFromGod() {
-    return gameData.dark_orbs >= getAGiftFromGodCost() && getAGiftFromGodCost() != Infinity
+    return canBuyDarkMatterShop(getAGiftFromGodCost())
 }
 
 function buyAGiftFromGod() {
-    if (canBuyAGiftFromGod()) {
-        gameData.dark_orbs -= getAGiftFromGodCost()
-        gameData.dark_matter_shop.a_gift_from_god += 1
-    }
+    buyDarkMatterShop(getAGiftFromGodCost(), "a_gift_from_god")
 }
 
 function getLifeCoachCost() {
@@ -51,14 +52,11 @@ function getLifeCoachCost() {
 }
 
 function canBuyLifeCoach() {
-    return gameData.dark_orbs >= getLifeCoachCost() && getLifeCoachCost() != Infinity 
+    return canBuyDarkMatterShop(getLifeCoachCost())
 }
 
 function buyLifeCoach() {
-    if (canBuyLifeCoach()) {
-        gameData.dark_orbs -= getLifeCoachCost()
-        gameData.dark_matter_shop.life_coach += 1
-    }
+    buyDarkMatterShop(getLifeCoachCost(), "life_coach")
 }
 
 function getGottaBeFastCost() {
@@ -66,14 +64,11 @@ function getGottaBeFastCost() {
 }
 
 function canBuyGottaBeFast() {
-    return gameData.dark_orbs >= getGottaBeFastCost() && getGottaBeFastCost() != Infinity
+    return canBuyDarkMatterShop(getGottaBeFastCost())
 }
 
 function buyGottaBeFast() {
-    if (canBuyGottaBeFast()) {
-        gameData.dark_orbs -= getGottaBeFastCost()
-        gameData.dark_matter_shop.gotta_be_fast += 1
-    }
+    buyDarkMatterShop(getGottaBeFastCost(), "gotta_be_fast")
 }
 
 // Rewards
@@ -120,8 +115,7 @@ function canBuyAMiracle() {
 
 function buyAMiracle() {
     if (canBuyAMiracle()) {
-        gameData.dark_matter_shop.a_miracle = true
-        gameData.dark_matter -= getAMiracleCost()
+        buyDarkMatterShop(getAMiracleCost(), "a_miracle", "dark_matter", true)
     }
 }
 
@@ -130,14 +124,14 @@ function buyAMiracle() {
 function resetSkillTree() {
     if (gameData.dark_matter < 1e11 && confirm("Are you sure that you want to reset your Dark Matter Abilities?")
         || gameData.dark_matter >=1e11) {
-        gameData.dark_matter_shop.speed_is_life = 0
-        gameData.dark_matter_shop.your_greatest_debt = 0
-        gameData.dark_matter_shop.essence_collector = 0
-        gameData.dark_matter_shop.explosion_of_the_universe = 0
-        gameData.dark_matter_shop.multiverse_explorer = 0
+        resetDarkMatterSkills()
         return true
     }
     return false
+}
+
+function resetDarkMatterSkills() {
+    for (const key of darkMatterSkillNames) gameData.dark_matter_shop[key] = 0
 }
 
 function buySpeedOfLife(number) {

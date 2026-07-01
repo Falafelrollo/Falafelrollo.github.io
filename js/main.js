@@ -438,17 +438,8 @@ function goBankrupt() {
     autoBuyEnabled = true
 }
 
-async function downloadFile() {
-    let response = await fetch("./changelog.txt");
-
-    if (response.status != 200) {
-        throw new Error("Server Error");
-    }
-
-    // read response stream as text
-    let text_data = await response.text();
-
-    return text_data;
+function downloadFile() {
+    return changelogText
 }
 
 document.querySelector("#changelogTabTabButton").addEventListener('click', async function () {
@@ -708,6 +699,11 @@ function resetEvilPerks(){
     }
 }
 
+function resetChallenges() {
+    for (const challenge in gameData.challenges) gameData.challenges[challenge] = 0
+    gameData.requirements["Challenges"].completed = false
+}
+
 function rebirthOne() {
     if (!gameData.requirements["Rebirth button 1"].isCompleted())
         return;
@@ -784,12 +780,7 @@ function rebirthFour() {
     gameData.evil_perks_points = 0
     gameData.evil_perks.receive_essence = 0
 
-    if (gameData.metaverse.challenge_altar == 0 && gameData.perks.save_challenges == 0)  {
-        for (const challenge in gameData.challenges) {
-            gameData.challenges[challenge] = 0
-        }
-        gameData.requirements["Challenges"].completed = false
-    }
+    if (gameData.metaverse.challenge_altar == 0 && gameData.perks.save_challenges == 0) resetChallenges()
 
     if (gameData.stats.fastest4 == null || gameData.rebirthFourTime < gameData.stats.fastest4)
         gameData.stats.fastest4 = gameData.rebirthFourTime
@@ -830,19 +821,10 @@ function rebirthFive() {
     
 
     if (gameData.perks.keep_dark_mater_skills == 0) {
-        gameData.dark_matter_shop.speed_is_life = 0
-        gameData.dark_matter_shop.your_greatest_debt = 0
-        gameData.dark_matter_shop.essence_collector = 0
-        gameData.dark_matter_shop.explosion_of_the_universe = 0
-        gameData.dark_matter_shop.multiverse_explorer = 0
+        resetDarkMatterSkills()
     }
 
-    if (gameData.perks.save_challenges == 0) {
-        for (const challenge in gameData.challenges) {
-            gameData.challenges[challenge] = 0
-        }
-        gameData.requirements["Challenges"].completed = false
-    }
+    if (gameData.perks.save_challenges == 0) resetChallenges()
 
     gameData.requirements["Dark Matter"].completed = false
     gameData.requirements["Dark Matter Skills"].completed = false
